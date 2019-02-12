@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './styles/styles.css';
+import './styles/toastr.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Root from './routes';
@@ -9,6 +11,7 @@ import configureStore from './store/configureStore';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {loadCourses} from './actions/courseActions';
 import {loadAuthors} from './actions/authorActions';
+
 const store = configureStore();
 
 store.dispatch(loadCourses());

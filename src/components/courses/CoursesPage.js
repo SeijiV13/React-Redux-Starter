@@ -1,6 +1,19 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import CoursesList from './CourseList';
+import {BrowserRouter, withRouter} from 'react-router-dom';
+import Title from '../common/Title';
+
+const SaveButton = withRouter(
+    ({history}) => 
+        <input type="button"
+        value="Add Course"
+        className="btn btn-primary"
+        onClick={()=> history.push("/course")}/>
+    
+)
+
+
 class CoursesPage extends React.Component {
     constructor(props, context){
         super(props, context);
@@ -8,31 +21,36 @@ class CoursesPage extends React.Component {
         this.state = {
             course: {title : ""}
         };
-
+        
     }
-     
+
+    
     courseRow(course, index){
         return  <div key={index}>{course.title}</div>
     }
 
-    redirectTpAddCoursePage(){
-        history.push('/course')
-    }
 
     render(){
+   
         const {courses} = this.props;
+        const title = "Courses";
+        const buttonStyle = {
+            textAlign: "center"
+        };
         return (
             <div>
-                <h1>Courses</h1>
-                <input type="submit"
-                       value="Add Course"
-                       className="btn btn-primary"
-                       onClick={this.redirectTpAddCoursePage}/>
+                <Title title={title}></Title>
+                <div style={buttonStyle}>
+                <SaveButton></SaveButton>
+                </div>
+                <br></br>
                 <CoursesList courses={courses}/>
             </div>
         );
     }
 }
+
+
 
 
 

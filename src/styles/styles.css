@@ -11,4 +11,18 @@ a.active{
 
 nav{
     padding-top: 20px;
+    text-align: center;
 }
+
+.jumbotron{
+    text-align: center;
+}
+
+.title{
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+}
+
