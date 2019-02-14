@@ -23,6 +23,10 @@ export function createCourseSuccess(course){
     return {type: types.CREATE_COURSE_SUCCESS, course}
 }
 
+export function deleteCourseSuccess(courses){
+    return {type: types.DELETE_COURSE_SUCCESS }
+}
+
 export function createCourseError(){
     return {type: types.CREATE_COURSE_ERROR}
 }
@@ -41,6 +45,14 @@ export function saveCourse(course){
             
             // for toaster
             dispatch(beginToastr({message: 'Course is successfully saved', type: 'success'}))
+        })
+    }
+}
+
+export function deleteCourse(course){
+    return function (dispatch){
+        return courseApi.deleteCourse(course.id).then(()=>{
+            dispatch(loadCourses());
         })
     }
 }

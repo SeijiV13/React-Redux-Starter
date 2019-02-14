@@ -9,10 +9,10 @@ import {Provider} from 'react-redux';
 import ManageCoursePage from './components/courses/ManageCoursePage';
 
 
-const Root = ({store}) => (
+const Routes = ({store}) => (
     <Provider store={store}> 
     <Router>
-        <div className="App container-fluid">
+        <div>
         <Header/>
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
@@ -27,4 +27,4 @@ const Root = ({store}) => (
     </Provider>
 )
 
-export default Root;
+export default Routes;

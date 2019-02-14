@@ -17,7 +17,7 @@ const store = configureStore();
 store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
 ReactDOM.render(
-       <Root store={store}/>
+       <App store={store}/>
      , 
     document.getElementById('root'));
 

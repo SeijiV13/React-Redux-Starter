@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {NavLink, IndexLink} from 'react-router-dom';
 
-const CourseListRow = ({course}) => {
+const CourseListRow = ({course, onClick}) => {
         return (
            <tr>
                <td></td>
@@ -10,6 +10,7 @@ const CourseListRow = ({course}) => {
                <td>{course.authorId}</td>
                <td>{course.category}</td>
                <td>{course.length}</td>
+               <td><button className="btn btn-danger" onClick={() => onClick(course)}>Remove</button></td>
            </tr>
         );
     

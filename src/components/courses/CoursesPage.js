@@ -1,5 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import { bindActionCreators} from 'redux';
+import * as courseActions from '../../actions/courseActions';
 import CoursesList from './CourseList';
 import {BrowserRouter, withRouter} from 'react-router-dom';
 import Title from '../common/Title';
@@ -29,6 +31,11 @@ class CoursesPage extends React.Component {
         return  <div key={index}>{course.title}</div>
     }
 
+    deleteRow(course){
+        console.log(course)
+      this.props.actions.deleteCourse(course);
+    }
+
 
     render(){
    
@@ -44,7 +51,7 @@ class CoursesPage extends React.Component {
                 <SaveButton></SaveButton>
                 </div>
                 <br></br>
-                <CoursesList courses={courses}/>
+                <CoursesList onClick={(course) => this.deleteRow(course)} courses={courses}/>
             </div>
         );
     }
@@ -60,4 +67,11 @@ function mapStateToProps(state, ownProps){
     };
 }
 
-export default connect(mapStateToProps)(CoursesPage);
+function mapDispatchToProps(dispatch){
+   return {
+       actions: bindActionCreators(courseActions, dispatch)
+   }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
