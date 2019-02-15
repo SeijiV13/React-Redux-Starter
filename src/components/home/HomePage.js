@@ -9,7 +9,7 @@ class HomePage extends React.Component{
         return (
             <div className="jumbotron">
                <Title title={title}></Title>
-               <p>React, Redux and React ROuter in Es6</p>
+               <p>React, Redux and React Router in Es6</p>
                <Link to="about" className="btn btn-primary btn-lg">Learn More</Link>
             </div>
         
